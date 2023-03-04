@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class PlayerScore : MonoBehaviour
+public class EndScore : MonoBehaviour
 {
     public int score;
     public int targetScore;
@@ -17,23 +17,24 @@ public class PlayerScore : MonoBehaviour
     public AudioClip key,win,lose;
     public GameObject penjara;
     public GameObject adik;
-
+    public GameObject objective;
+    public GameObject objective1;
     public GameObject bgm;
     void Start()
     {
         score = 0;
         scoreText.text = " = " + score.ToString();
         playerMovement = GetComponent<PlayerMovement>();
+
     }
 
     private void Update()
     {
         if (score == targetScore)
         {
-            Destroy(bgm);
-            AudioSource.PlayClipAtPoint(win,Camera.main.transform.position);
-            winScene.SetActive(true);
-            playerMovement.winlose = true;
+            objective1.SetActive(true);
+            penjara.SetActive(false);
+            adik.GetComponent<BoxCollider2D>().enabled = true;
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -42,7 +43,6 @@ public class PlayerScore : MonoBehaviour
         }
         
     }
-
     IEnumerator PauseGame()
     {
         yield return new WaitForSeconds(0.25f);

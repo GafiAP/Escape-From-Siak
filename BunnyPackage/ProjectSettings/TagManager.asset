@@ -18,6 +18,7 @@ TagManager:
   - door1B
   - door1A
   - door1D
+  - adik
   layers:
   - Default
   - TransparentFX

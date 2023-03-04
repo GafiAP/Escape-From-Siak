@@ -125,7 +125,7 @@ public class Goblin : MonoBehaviour
             anim = true;
             yield return new WaitForSeconds(1);
             transform.position = portalPositionUp2.position;
-            count = 14;
+            count = 15;
             SelectTarget();
             
             gobAnim.SetBool("Portal", false);
